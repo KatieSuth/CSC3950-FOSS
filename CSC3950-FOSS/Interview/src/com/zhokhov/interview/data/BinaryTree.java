@@ -121,29 +121,25 @@ public class BinaryTree {
    }
 
    //Katie - renamed this function since Menu.java is the new main
-   public void BinaryTreeStart(){
+   public void BinaryTreeStart(Scanner scanBT){
       BinaryTree theTree = new BinaryTree();
       int BTintInput = 0;         //Ring:for storing user input int
       String BTstringInput;   //Ring:for storing user input string
-      Scanner scan = new Scanner(System.in);
       while(BTintInput!=-999){ 
          System.out.println("Enter the number for this node(-999 to exit)");
-         BTintInput = scan.nextInt();
+         BTintInput = scanBT.nextInt();
          if(BTintInput!=-999){
             System.out.println("Enter the string for this node.");
-            BTstringInput = scan.next();
+            BTstringInput = scanBT.next();
             theTree.addNode(BTintInput, BTstringInput);
          }   
       }
       System.out.println("What's the number of the node that you want to find?");
-      BTintInput=scan.nextInt();
+      BTintInput=scanBT.nextInt();
       System.out.println("Node with the key: "+BTintInput+"/n");
       System.out.println(theTree.findNode(BTintInput));
       theTree.inOrderTraverseTree(theTree.root);
       theTree.preorderTraverseTree(theTree.root);
       theTree.postOrderTraverseTree(theTree.root);
-      
-      //Katie - closed scan
-      scan.close();
    }
 }

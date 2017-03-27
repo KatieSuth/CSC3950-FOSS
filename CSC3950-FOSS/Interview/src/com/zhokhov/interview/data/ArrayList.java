@@ -67,24 +67,20 @@ public class ArrayList {
    }
 
   //Katie - renamed this function since Menu.java is the new main
-   public void ArrayListStart() throws Exception{
+   public void ArrayListStart(Scanner scanAL) throws Exception{
       ArrayList mal = new ArrayList();       //Ring:I think zhokhov meant "master array list"
       int ALinput;                           //Ring: For allowing the user to enter int variables.Could flesh it out later for other data types.
-      Scanner scan = new Scanner(System.in); 
       System.out.println("Enter the integer values you'd like to populate the arraylist with individually.(-999 to stop)");
-      ALinput = scan.nextInt();
+      ALinput = scanAL.nextInt();
       while(ALinput!=-999){
          mal.add(ALinput);
-         ALinput = scan.nextInt();
+         ALinput = scanAL.nextInt();
       }
       System.out.println("Enter the value you'd like to remove.");
-      ALinput = scan.nextInt();
+      ALinput = scanAL.nextInt();
       mal.remove(ALinput);
       System.out.println("Enter the index you'd like to retrieve.");
-      ALinput = scan.nextInt();
+      ALinput = scanAL.nextInt();
       System.out.println("The value stored at index "+ALinput+" is: "+mal.get(ALinput));
-      
-      //Katie - closed scan
-      scan.close();
    }
 }
