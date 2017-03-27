@@ -30,8 +30,8 @@ public class QuickSort {
      * The quickSort algorithm implementation
      */
     private void quickSort(int array[], int startIndex, int endIndex) {
-        __grey("\nquickSort, startIndex: " + startIndex + ", endIndex: " + endIndex + "  ==> ");
-        ____purple("" + (endIndex - startIndex >= 1));
+         System.out.println("\nquickSort, startIndex: " + startIndex + ", endIndex: " + endIndex + "  ==> ");
+         System.out.println("" + (endIndex - startIndex >= 1));
 
         COMPARISONS_COUNT++;
         // check that there are at least two elements to sort
@@ -57,7 +57,7 @@ public class QuickSort {
         // set the pivot as the first element in the partition
         int pivot = array[startIndex];
 
-        ____grey("pivot: " + pivot);
+         System.out.println("pivot: " + pivot);
 
         // while the scan indices from left and right have not met
         while (rightIndex > leftIndex) {
@@ -70,7 +70,7 @@ public class QuickSort {
 
                 leftIndex++;
 
-                ____blue(" new leftIndex: " + leftIndex);
+                 System.out.println(" new leftIndex: " + leftIndex);
             }
 
             // from the right, look for the first
@@ -80,7 +80,7 @@ public class QuickSort {
 
                 rightIndex--;
 
-                ____blue(" new rightIndex: " + rightIndex);
+                 System.out.println(" new rightIndex: " + rightIndex);
             }
 
             COMPARISONS_COUNT++;
@@ -100,14 +100,14 @@ public class QuickSort {
 
     private void swap(int array[], int index1, int index2) {
         SWAPS_COUNT++;
-        ____blue("Swapping: " + index1 + " and " + index2);
+         System.out.println("Swapping: " + index1 + " and " + index2);
 
         int temp = array[index1];
 
         array[index1] = array[index2];
         array[index2] = temp;
 
-        __red("==> ");
+         System.out.println("==> ");
         __dump(array);
         System.out.println("");
     }
@@ -115,7 +115,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 6, 5, 3};
 
-        __yellow("\nNew array: ");
+         System.out.println("\nNew array: ");
         __dump(array);
 
         System.out.println("\nSorting");
@@ -123,13 +123,13 @@ public class QuickSort {
         QuickSort quickSort = new QuickSort();
         quickSort.sort(array);
 
-        __green("\nResult: ");
+         System.out.println("\nResult: ");
         __dump(array);
 
-        ____grey("\nStatistics");
-        __green("  Comparisons: ");
+         System.out.println("\nStatistics");
+         System.out.println("  Comparisons: ");
         System.out.print(quickSort.COMPARISONS_COUNT);
-        __green("\n  Swaps: ");
+         System.out.println("\n  Swaps: ");
         System.out.println(quickSort.SWAPS_COUNT);
     }
 
