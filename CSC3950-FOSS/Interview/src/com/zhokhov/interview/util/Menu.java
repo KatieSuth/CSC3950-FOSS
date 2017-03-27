@@ -177,4 +177,13 @@ public class Menu {
 		return 0;
 	}
 	
+    /*
+     * Utility for dumping the array
+     */
+    public static void __dump(int[] array) {
+        for (int i : array) System.out.print(i + " ");
+
+        System.out.print("\n");
+    }
+	
 }
