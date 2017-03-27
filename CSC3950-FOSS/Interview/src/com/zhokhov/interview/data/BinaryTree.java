@@ -2,256 +2,144 @@
  *  You are free to use this code anywhere, copy, modify and redistribute at your
  *  own risk.
  *  Your are solely responsibly for any damage that may occur by using this code.
- *
  *  This code is not tested for all boundary conditions. Use it at your own risk.
- *
  *  Original code: http://www.newthinktank.com/2013/03/binary-tree-in-java/
- */
-package com.zhokhov.interview.data;
-
-/**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
  */
+package com.zhokhov.interview.data;
+import java.util.Scanner;
+
 public class BinaryTree {
+   private class Node {
+      int key;
+      String name;
+      Node leftChild;
+      Node rightChild;
+      //Node parent;
+      Node(int key, String name){
+         this.key = key;
+         this.name = name;
+      }
+   
+      public String toString(){
+         return name + " has the key " + key;
+      //* return name + " has the key " + key + "\nLeft Child: " + leftChild +"\nRight Child: " + rightChild + "\n";
+      }
+   }
 
-    private class Node {
+   Node root;
 
-        int key;
-        String name;
-
-        Node leftChild;
-        Node rightChild;
-
-        //Node parent;
-
-        Node(int key, String name) {
-
-            this.key = key;
-            this.name = name;
-
-        }
-
-        public String toString() {
-
-            return name + " has the key " + key;
-
-		/*
-         * return name + " has the key " + key + "\nLeft Child: " + leftChild +
-		 * "\nRight Child: " + rightChild + "\n";
-		 */
-
-        }
-
-    }
-
-    Node root;
-
-    public void addNode(int key, String name) {
-
-        // Create a new Node and initialize it
-
-        Node newNode = new Node(key, name);
-
-        // If there is no root this becomes root
-
-        if (root == null) {
-
-            root = newNode;
-
-        } else {
-
-            // Set root as the Node we will start
-            // with as we traverse the tree
-
-            Node focusNode = root;
-
-            // Future parent for our new Node
-
-            Node parent;
-
-            while (true) {
-
-                // root is the top parent so we start
-                // there
-
-                parent = focusNode;
-
-                // Check if the new node should go on
-                // the left side of the parent node
-
-                if (key < focusNode.key) {
-
-                    // Switch focus to the left child
-
-                    focusNode = focusNode.leftChild;
-
-                    // If the left child has no children
-
-                    if (focusNode == null) {
-
-                        // then place the new node on the left of it
-
-                        parent.leftChild = newNode;
-                        return; // All Done
-
-                    }
-
-                } else { // If we get here put the node on the right
-
-                    focusNode = focusNode.rightChild;
-
-                    // If the right child has no children
-
-                    if (focusNode == null) {
-
-                        // then place the new node on the right of it
-
-                        parent.rightChild = newNode;
-                        return; // All Done
-
-                    }
-
-                }
-
+   public void addNode(int key, String name) {
+      Node newNode = new Node(key, name);// Create a new Node and initialize it
+      if (root == null){// If there is no root this becomes root
+         root = newNode;
+      } 
+      else{
+         Node focusNode = root;// Set root as the Node we will start with as we traverse the tree
+         Node parent;// Future parent for our new Node
+         while(true){
+            parent = focusNode;// root is the top parent so we start there
+            if (key < focusNode.key){// Check if the new node should go on the left side of the parent node
+               focusNode = focusNode.leftChild;// Switch focus to the left child
+               if (focusNode == null) {// If the left child has no children
+                  parent.leftChild = newNode; // then place the new node on the left of it
+                  return;
+               }
+            } 
+            else{ // If we get here put the node on the right
+               focusNode = focusNode.rightChild;
+               if (focusNode == null) {// If the right child has no children
+                  // then place the new node on the right of it
+                  parent.rightChild = newNode;
+                  return; // All Done
+               }
             }
-        }
+         }
+      }
+   }
+   
+   /* All nodes are visited in ascending order
+      Recursion is used to go to one node and
+      then go to its child nodes and so forth
+   */
+   public void inOrderTraverseTree(Node focusNode){
+      if (focusNode != null){
+         inOrderTraverseTree(focusNode.leftChild); // Traverse the left node
+         System.out.println(focusNode);            // Visit the currently focused on node
+         inOrderTraverseTree(focusNode.rightChild);// Traverse the right node
+      }
+   }
 
-    }
+   public void preorderTraverseTree(Node focusNode) {
+      if (focusNode != null){
+         System.out.println(focusNode);
+         preorderTraverseTree(focusNode.leftChild);
+         preorderTraverseTree(focusNode.rightChild);
+      }
+   }
 
-    // All nodes are visited in ascending order
-    // Recursion is used to go to one node and
-    // then go to its child nodes and so forth
+   public void postOrderTraverseTree(Node focusNode) {
+      if (focusNode != null){
+         postOrderTraverseTree(focusNode.leftChild);
+         postOrderTraverseTree(focusNode.rightChild);
+         System.out.println(focusNode);
+      }
+   }
 
-    public void inOrderTraverseTree(Node focusNode) {
+   public Node findNode(int key){
+      Node focusNode = root;// Start at the top of the tree
+      while (focusNode.key != key){// While we haven't found the Node keep looking  
+         if (key < focusNode.key){// If we should search to the left 
+            focusNode = focusNode.leftChild;// Shift the focus Node to the left child
+         } 
+         else{
+            focusNode = focusNode.rightChild;// Shift the focus Node to the right child
+         }
+         if (focusNode == null){// The node wasn't found
+            return null;
+         }
+      }
+      return focusNode;
+   }
 
-        if (focusNode != null) {
+   // TODO
+   /*
+   int depth(Node u) {
+       int d = 0;
+       while (u != r) {
+           u = u.parent;
+           d++;
+       }
+       return d;
+   }
+   */
 
-            // Traverse the left node
+   int size(Node u){
+      if (u == null) 
+         return 0;
+      return 1 + size(u.leftChild) + size(u.rightChild);
+   }
 
-            inOrderTraverseTree(focusNode.leftChild);
-
-            // Visit the currently focused on node
-
-            System.out.println(focusNode);
-
-            // Traverse the right node
-
-            inOrderTraverseTree(focusNode.rightChild);
-
-        }
-
-    }
-
-    public void preorderTraverseTree(Node focusNode) {
-
-        if (focusNode != null) {
-
-            System.out.println(focusNode);
-
-            preorderTraverseTree(focusNode.leftChild);
-            preorderTraverseTree(focusNode.rightChild);
-
-        }
-
-    }
-
-    public void postOrderTraverseTree(Node focusNode) {
-
-        if (focusNode != null) {
-
-            postOrderTraverseTree(focusNode.leftChild);
-            postOrderTraverseTree(focusNode.rightChild);
-
-            System.out.println(focusNode);
-
-        }
-
-    }
-
-    public Node findNode(int key) {
-
-        // Start at the top of the tree
-
-        Node focusNode = root;
-
-        // While we haven't found the Node
-        // keep looking
-
-        while (focusNode.key != key) {
-
-            // If we should search to the left
-
-            if (key < focusNode.key) {
-
-                // Shift the focus Node to the left child
-
-                focusNode = focusNode.leftChild;
-
-            } else {
-
-                // Shift the focus Node to the right child
-
-                focusNode = focusNode.rightChild;
-
-            }
-
-            // The node wasn't found
-
-            if (focusNode == null)
-                return null;
-
-        }
-
-        return focusNode;
-
-    }
-
-    // TODO
-    /*
-    int depth(Node u) {
-        int d = 0;
-        while (u != r) {
-            u = u.parent;
-            d++;
-        }
-        return d;
-    }
-    */
-
-    int size(Node u) {
-        if (u == null) return 0;
-        return 1 + size(u.leftChild) + size(u.rightChild);
-    }
-
-    public static void main(String[] args) {
-
-        BinaryTree theTree = new BinaryTree();
-
-        theTree.addNode(50, "Boss");
-
-        theTree.addNode(25, "Vice President");
-
-        theTree.addNode(15, "Office Manager");
-
-        theTree.addNode(30, "Secretary");
-
-        theTree.addNode(75, "Sales Manager");
-
-        theTree.addNode(85, "Salesman 1");
-
-        // Different ways to traverse binary trees
-
-        // theTree.inOrderTraverseTree(theTree.root);
-
-        // theTree.preorderTraverseTree(theTree.root);
-
-        // theTree.postOrderTraverseTree(theTree.root);
-
-        // Find the node with key 75
-
-        System.out.println("\nNode with the key 75");
-
-        System.out.println(theTree.findNode(75));
-
-    }
+   public static void main(String[] args){
+      BinaryTree theTree = new BinaryTree();
+      int BTintInput = 0;         //Ring:for storing user input int
+      String BTstringInput;   //Ring:for storing user input string
+      Scanner scan = new Scanner(System.in);
+      while(BTintInput!=-999){ 
+         System.out.println("Enter the number for this node(-999 to exit)");
+         BTintInput = scan.nextInt();
+         if(BTintInput!=-999){
+            System.out.println("Enter the string for this node.");
+            BTstringInput = scan.next();
+            theTree.addNode(BTintInput, BTstringInput);
+         }   
+      }
+      System.out.println("What's the number of the node that you want to find?");
+      BTintInput=scan.nextInt();
+      System.out.println("Node with the key: "+BTintInput+"/n");
+      System.out.println(theTree.findNode(BTintInput));
+      theTree.inOrderTraverseTree(theTree.root);
+      theTree.preorderTraverseTree(theTree.root);
+      theTree.postOrderTraverseTree(theTree.root);
+   }
 }
