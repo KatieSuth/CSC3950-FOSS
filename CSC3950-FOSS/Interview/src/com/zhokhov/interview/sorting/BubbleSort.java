@@ -25,25 +25,26 @@ public class BubbleSort {
 
         for (int reverseIndex = array.length - 1; reverseIndex > 1; reverseIndex--) {
             LOOP_COUNT++;
-            ____grey("------\nreverseIndex: " + reverseIndex);
+           // ____grey("------\nreverseIndex: " + reverseIndex);
+            System.out.println("------\nreverseIndex: " + reverseIndex);
 
             for (int i = 0; i < reverseIndex; i++) {
                 LOOP_COUNT++;
-                ____grey("i: " + i);
-
+               // ____grey("i: " + i);
+                 System.out.println("i: " + i);
                 COMPARISONS_COUNT++;
 
                 if (array[i] > array[i + 1]) {
                     SWAPS_COUNT++;
-                    ____blue("Swapping: " + i + " and " + (i + 1));
-
+                    //____blue("Swapping: " + i + " and " + (i + 1));
+                    System.out.println("Swapping: " + i + " and " + (i + 1));
                     // Swap code
                     int temp = array[i];
 
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
 
-                    __red("==> ");
+                    System.out.println("==> ");
                     __dump(array);
                     System.out.println("");
                 }
@@ -54,7 +55,8 @@ public class BubbleSort {
     public static void main(String[] args) {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 6, 5, 3};
 
-        __yellow("\nNew array: ");
+       // __yellow("\nNew array: ");
+        System.out.println("\nNew array: ");
         __dump(array);
 
         System.out.println("\nSorting\n");
@@ -62,15 +64,20 @@ public class BubbleSort {
         BubbleSort bubbleSort = new BubbleSort();
         bubbleSort.sort(array);
 
-        __green("\nResult: ");
+         // __green("\nResult: "); 
+      System.out.println("\nResult: ");
         __dump(array);
 
-        ____grey("\nStatistics");
-        __green("  Comparisons: ");
+        //____grey("\nStatistics");
+        System.out.println("\nStatistics");
+        //__green("  Comparisons: ");
+       System.out.println("  Comparisons: ");
         System.out.print(bubbleSort.COMPARISONS_COUNT);
-        __green("\n  Swaps: ");
+        //__green("\n  Swaps: ");
+        System.out.println("\n  Swaps: ");
         System.out.print(bubbleSort.SWAPS_COUNT);
-        __green("\n  Loops: ");
+       // __green("\n  Loops: ");
+         System.out.println("\n  Loops: ");
         System.out.println(bubbleSort.LOOP_COUNT);
     }
 
