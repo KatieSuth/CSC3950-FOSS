@@ -28,16 +28,16 @@ public class SelectionSort {
         // Start from first
         for (int index = 0; index < array.length; index++) {
             LOOP_COUNT++;
-            ____cyan("\n--------\nindex: " + index);
+             System.out.println("\n--------\nindex: " + index);
 
 
             // find the next smallest element
             int minIndex = findNextSmallestElement(index, array);
 
-            ____grey("found smallest element index: " + minIndex);
+             System.out.println("found smallest element index: " + minIndex);
 
             SWAPS_COUNT++;
-            ____blue("Swapping: " + index + " and " + minIndex);
+             System.out.println("Swapping: " + index + " and " + minIndex);
 
             // Swap code
             int temp = array[minIndex];
@@ -45,7 +45,7 @@ public class SelectionSort {
             array[minIndex] = array[index];
             array[index] = temp;
 
-            __red("==> ");
+             System.out.println("==> ");
             __dump(array);
         }
     }
@@ -75,7 +75,7 @@ public class SelectionSort {
     public static void main(String[] args) {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 6, 5, 3};
 
-        __yellow("\nNew array: ");
+         System.out.println("\nNew array: ");
         __dump(array);
 
         System.out.println("\nSorting");
@@ -83,15 +83,15 @@ public class SelectionSort {
         SelectionSort selectionSort = new SelectionSort();
         selectionSort.sort(array);
 
-        __green("\nResult: ");
+         System.out.println("\nResult: ");
         __dump(array);
 
-        ____grey("\nStatistics");
-        __green("  Comparisons: ");
+         System.out.println("\nStatistics");
+         System.out.println("  Comparisons: ");
         System.out.print(selectionSort.COMPARISONS_COUNT);
-        __green("\n  Swaps: ");
+         System.out.println("\n  Swaps: ");
         System.out.print(selectionSort.SWAPS_COUNT);
-        __green("\n  Loops: ");
+         System.out.println("\n  Loops: ");
         System.out.println(selectionSort.LOOP_COUNT);
     }
 
