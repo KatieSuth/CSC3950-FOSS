@@ -1,4 +1,6 @@
 
+package com.zhokhov.interview.data;
+
 import java.util.ArrayList;
 import java.util.Random;
 public class HashTest {
