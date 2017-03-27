@@ -14,7 +14,10 @@ public class Console {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_GREY = "\u001B[37m";
 
+
     /*public static String red(String s) {
+
+
         return ANSI_RED + s + ANSI_RESET;
     }
 

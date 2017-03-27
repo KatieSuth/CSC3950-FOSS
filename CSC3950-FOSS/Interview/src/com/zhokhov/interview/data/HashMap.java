@@ -12,6 +12,14 @@ package com.zhokhov.interview.data;
 /**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
  */
+
+//Anthony Logan Mitchell, Software Maintenance CSC 3950. 
+//Bug was reported that the hash table would go into an infinite loop
+//when the table was full, and you request a key that was not in the table.
+//The bug happend because of a final static TABLE_SIZE=128, and the get(key);
+//function is to find what is contained within a specific index, if the table
+//was full and the key wasnt in the 
+//
 public class HashMap {
 
     private final static int TABLE_SIZE = 128;
@@ -48,30 +56,53 @@ public class HashMap {
 
     public int get(int key) {
         int hash = (key % TABLE_SIZE);
+        if(hash>=TABLE_SIZE)
+        {
+        	return -1;
+        }
 
         while (table[hash] != null && table[hash].getKey() != key) {
-        	//Katie - added if statement per Issue #1
-        	if(hash > 128){
+        	
+        	//System.out.println("line 58"); //<<------------This is where the infinite loop was occuring.
+        	if(key >=TABLE_SIZE){       ///<----------This statement was added to inform and prevent the loop.
         		break;
         	} else {
             hash = (hash + 1) % TABLE_SIZE;
         	}
         }
+        
+      
 
-        if (table[hash] == null)
-            return -1;
-        else
-            return table[hash].getValue();
+        if (table[hash] == null || key>=TABLE_SIZE)//<<---The || shortcircuit was added to prevent overflow.
+            {
+        	System.out.println("Ran Over bounds");
+        	System.out.println("key must be 0-127, returning -1");
+        	return -1;
+            }
+        	else
+        	{
+        	 return table[hash].getValue();
+        	}
+           
     }
 
     public void put(int key, int value) {
         int hash = (key % TABLE_SIZE);
 
         while (table[hash] != null && table[hash].getKey() != key) {
-            hash = (hash + 1) % TABLE_SIZE;
+            hash = (hash+1) % TABLE_SIZE;
+            if(hash>128)
+            {
+            	
+            	break;
+            }
+                   
         }
 
         table[hash] = new HashEntry(key, value);
     }
+    
+ 
 
 }
+
