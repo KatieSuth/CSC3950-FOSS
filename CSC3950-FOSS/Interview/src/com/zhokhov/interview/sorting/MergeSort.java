@@ -30,16 +30,13 @@ public class MergeSort {
      * The mergeSort algorithm implementation
      */
     private void mergeSort(int[] array, int left, int right) {
-        //__grey("\nmergeSort, left: " + left + ", right: " + right + "  ==> ");
          System.out.println("\nmergeSort, left: " + left + ", right: " + right + "  ==> ");
-        //____purple("" + (left < right));
         System.out.println("" + (left < right));
         COMPARISONS_COUNT++;
         if (left < right) {
             // split the array into 2
             int center = (left + right) / 2;
 
-           // ____grey("center: " + center);
             System.out.println("center: " + center);
             // sort the left and right array
             mergeSort(array, left, center);
@@ -63,10 +60,6 @@ public class MergeSort {
         int[] resultArray = new int[numElements];
         int resultArrayBegin = 0;
 
-       // ____grey("  leftArrayBegin: " + leftArrayBegin);
-        //____grey("  leftArrayEnd: " + leftArrayEnd);
-       // ____grey("  rightArrayBegin: " + rightArrayBegin);
-       // ____grey("  rightArrayEnd: " + rightArrayEnd);
          System.out.println("leftArrayBegin: " + leftArrayBegin);
          System.out.println("leftArrayEnd: " + leftArrayEnd);
          System.out.println("rightArrayBegin: " + rightArrayBegin);
