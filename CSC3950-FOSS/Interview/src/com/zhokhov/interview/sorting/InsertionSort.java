@@ -27,7 +27,7 @@ public class InsertionSort {
         // start from the element [1] -- Get that element and insert
         for (int index = 1; index < array.length; index++) {
             LOOP_COUNT++;
-            ____cyan("\n--------\nindex: " + index);
+             System.out.println("\n--------\nindex: " + index);
 
             insert(array, index);
         }
@@ -37,43 +37,43 @@ public class InsertionSort {
         // value of the element to be inserted
         int value = array[currentIndex];
 
-        ____grey("value: " + value);
-        ____grey("currentIndex: " + currentIndex);
+         System.out.println("value: " + value);
+         System.out.println("currentIndex: " + currentIndex);
 
         // iterate in the loop for all elements below the currentIndex
         int reverseIndex = currentIndex;
 
-        ____grey("reverseIndex: " + reverseIndex);
+         System.out.println("reverseIndex: " + reverseIndex);
 
         for (int i = currentIndex - 1; i >= 0; i--) {
             LOOP_COUNT++;
-            ____grey("\ni: " + i);
+             System.out.println("\ni: " + i);
 
             COMPARISONS_COUNT++;
             // If the array element is  greater than the value
             // move the array element to the next higher index
             if (array[i] >= value) {
-                ____blue("Move element " + array[i] + " to position " + (i + 1));
-                ____blue("new reverseIndex: " + i);
+                 System.out.println("Move element " + array[i] + " to position " + (i + 1));
+                 System.out.println("new reverseIndex: " + i);
 
                 array[i + 1] = array[i];
                 reverseIndex = i;
 
                 System.out.print("[" + value + "]");
-                __red(" ==> ");
+                 System.out.println(" ==> ");
                 __dump(array);
             } else {
-                ____grey("breaking");
+                 System.out.println("breaking");
 
                 break;
             }
         }
 
-        ____grey("\nreverseIndex (after loop): " + reverseIndex + ", put value here");
+         System.out.println("\nreverseIndex (after loop): " + reverseIndex + ", put value here");
 
         array[reverseIndex] = value;
 
-        __red("==> ");
+         System.out.println("==> ");
         __dump(array);
     }
 
@@ -84,33 +84,33 @@ public class InsertionSort {
      * This is here only for explanation purpose.
      */
     private void sampleInsert(int array[], int value) {
-        ____grey("value: " + value);
+         System.out.println("value: " + value);
 
         int reverseIndex = array.length - 1;
 
-        ____grey("reverseIndex: " + reverseIndex);
+         System.out.println("reverseIndex: " + reverseIndex);
 
         // start the loop from last element
         for (int i = array.length - 2; i >= 0; i--) {
-            ____grey("\ni: " + i);
+             System.out.println("\ni: " + i);
 
             // If the array element is greater than the value
             // move the array element to the next index
             // i.e one level higher on the index.
             if (array[i] >= value) {
-                ____blue("Move element to: " + (i + 1));
-                ____blue("new reverseIndex: " + i);
+                 System.out.println("Move element to: " + (i + 1));
+                 System.out.println("new reverseIndex: " + i);
 
                 array[i + 1] = array[i];
                 reverseIndex = i;
             } else {
-                ____grey("breaking");
+                 System.out.println("breaking");
 
                 break;
             }
         }
 
-        ____grey("\nreverseIndex (after loop): " + reverseIndex + ", put value here");
+         System.out.println("\nreverseIndex (after loop): " + reverseIndex + ", put value here");
 
         array[reverseIndex] = value;
     }
@@ -118,7 +118,7 @@ public class InsertionSort {
     public static void main(String[] args) {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 7, 5, 3};
 
-        __yellow("\nNew array: ");
+         System.out.println("\nNew array: ");
         __dump(array);
 
         System.out.println("\nSorting");
@@ -126,13 +126,13 @@ public class InsertionSort {
         InsertionSort insertionSort = new InsertionSort();
         insertionSort.sort(array);
 
-        __green("\nResult: ");
+         System.out.println("\nResult: ");
         __dump(array);
 
-        ____grey("\nStatistics");
-        __green("  Comparisons: ");
+         System.out.println("\nStatistics");
+         System.out.println("  Comparisons: ");
         System.out.print(insertionSort.COMPARISONS_COUNT);
-        __green("\n  Loops: ");
+         System.out.println("\n  Loops: ");
         System.out.println(insertionSort.LOOP_COUNT);
 
         System.out.print("\n");
@@ -141,14 +141,14 @@ public class InsertionSort {
 
         int sortedArray[] = {1, 2, 3, 4, 5, 6, Integer.MAX_VALUE};
 
-        __yellow("\nNew array: ");
+        System.out.println("\nNew array: ");
         __dump(array);
 
         System.out.println("\nInserting");
 
         insertionSort.sampleInsert(sortedArray, 4);
 
-        __green("\nResult: ");
+         System.out.println("\nResult: ");
         __dump(sortedArray);
     }
 
