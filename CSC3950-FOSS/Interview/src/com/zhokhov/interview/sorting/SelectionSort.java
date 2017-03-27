@@ -9,7 +9,7 @@
  */
 package com.zhokhov.interview.sorting;
 
-import static com.zhokhov.interview.util.Console.*;
+import static com.zhokhov.interview.util.Menu.*;
 
 /**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
