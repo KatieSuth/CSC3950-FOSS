@@ -15,35 +15,42 @@ public class Console {
     public static final String ANSI_GREY = "\u001B[37m";
 
 
-    /*public static String red(String s) {
+    public static String red(String s) {
 
 
-        return ANSI_RED + s + ANSI_RESET;
+        //return ANSI_RED + s + ANSI_RESET;
+    	return s;
     }
 
     public static String green(String s) {
-        return ANSI_GREEN + s + ANSI_RESET;
+        //return ANSI_GREEN + s + ANSI_RESET;
+    	return s;
     }
 
     public static String yellow(String s) {
-        return ANSI_YELLOW + s + ANSI_RESET;
+        //return ANSI_YELLOW + s + ANSI_RESET;
+    	return s;
     }
 
     public static String blue(String s) {
-        return ANSI_BLUE + s + ANSI_RESET;
+        //return ANSI_BLUE + s + ANSI_RESET;
+    	return s;
     }
 
     public static String purple(String s) {
-        return ANSI_PURPLE + s + ANSI_RESET;
+        //return ANSI_PURPLE + s + ANSI_RESET;
+    	return s;
     }
 
     public static String cyan(String s) {
-        return ANSI_CYAN + s + ANSI_RESET;
+        //return ANSI_CYAN + s + ANSI_RESET;
+    	return s;
     }
 
     public static String grey(String s) {
-        return ANSI_GREY + s + ANSI_RESET;
-    }*/
+        //return ANSI_GREY + s + ANSI_RESET;
+    	return s;
+    }
 
     public static void __red(String s) {
         System.out.print(red(s));

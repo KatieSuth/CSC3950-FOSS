@@ -115,7 +115,8 @@ public class InsertionSort {
         array[reverseIndex] = value;
     }
 
-    public static void main(String[] args) {
+    //Katie - renamed this function since Menu.java is the new main
+    public void InsertionStart() {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 7, 5, 3};
 
          System.out.println("\nNew array: ");
@@ -129,12 +130,11 @@ public class InsertionSort {
          System.out.println("\nResult: ");
         __dump(array);
 
-         System.out.println("\nStatistics");
-         System.out.println("  Comparisons: ");
+        System.out.println("\nStatistics");
+        System.out.print("  Comparisons: ");
         System.out.print(insertionSort.COMPARISONS_COUNT);
-         System.out.println("\n  Loops: ");
-        System.out.println(insertionSort.LOOP_COUNT);
-
+        System.out.print("\n  Loops: ");
+        System.out.print(insertionSort.LOOP_COUNT);
         System.out.print("\n");
         System.out.println("***********************\n");
         System.out.println("Insert item to sorted array.");

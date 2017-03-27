@@ -67,10 +67,10 @@ public class MergeSort {
         //____grey("  leftArrayEnd: " + leftArrayEnd);
        // ____grey("  rightArrayBegin: " + rightArrayBegin);
        // ____grey("  rightArrayEnd: " + rightArrayEnd);
-         System.out.println("  leftArrayBegin: " + leftArrayBegin);       
-         System.out.println("  leftArrayEnd: " + leftArrayEnd);       
-         System.out.println("  rightArrayBegin: " + rightArrayBegin);      
-        System.out.println("  rightArrayEnd: " + rightArrayEnd);
+         System.out.println("leftArrayBegin: " + leftArrayBegin);
+         System.out.println("leftArrayEnd: " + leftArrayEnd);
+         System.out.println("rightArrayBegin: " + rightArrayBegin);
+         System.out.println("rightArrayEnd: " + rightArrayEnd);
         // Find the smallest element in both these array and add it to the result
         // array i.e you may have a array of the form [1,5] [2,4]
         // We need to sort the above as [1,2,4,5]
@@ -174,7 +174,8 @@ public class MergeSort {
         return resultArray;
     }
 
-    public static void main(String args[]) {
+    //Katie - renamed this function since Menu.java is the new main
+    public void MergeStart() {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 7, 5, 3};
 
         System.out.println("\nNew array: ");
@@ -189,10 +190,10 @@ public class MergeSort {
         __dump(array);
 
         System.out.println("\nStatistics");
-         System.out.println("  Comparisons: ");
+        System.out.print("  Comparisons: ");
         System.out.print(mergeSort.COMPARISONS_COUNT);
-         System.out.println("\n  Loops: ");
-        System.out.println(mergeSort.LOOP_COUNT);
+        System.out.print("\n  Loops: ");
+        System.out.print(mergeSort.LOOP_COUNT);
 
         System.out.print("\n");
         System.out.println("***********************\n");

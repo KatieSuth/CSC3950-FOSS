@@ -66,7 +66,8 @@ public class ArrayList {
       this.index--;
    }
 
-   public static void main(String[] args) throws Exception{
+  //Katie - renamed this function since Menu.java is the new main
+   public void ArrayListStart() throws Exception{
       ArrayList mal = new ArrayList();       //Ring:I think zhokhov meant "master array list"
       int ALinput;                           //Ring: For allowing the user to enter int variables.Could flesh it out later for other data types.
       Scanner scan = new Scanner(System.in); 
@@ -82,5 +83,8 @@ public class ArrayList {
       System.out.println("Enter the index you'd like to retrieve.");
       ALinput = scan.nextInt();
       System.out.println("The value stored at index "+ALinput+" is: "+mal.get(ALinput));
+      
+      //Katie - closed scan
+      scan.close();
    }
 }

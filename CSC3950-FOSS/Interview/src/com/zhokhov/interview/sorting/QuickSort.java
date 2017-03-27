@@ -112,7 +112,8 @@ public class QuickSort {
         System.out.println("");
     }
 
-    public static void main(String[] args) {
+    //Katie - renamed this function since Menu.java is the new main
+    public void QuickStart() {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 6, 5, 3};
 
          System.out.println("\nNew array: ");
@@ -126,11 +127,11 @@ public class QuickSort {
          System.out.println("\nResult: ");
         __dump(array);
 
-         System.out.println("\nStatistics");
-         System.out.println("  Comparisons: ");
+        System.out.println("\nStatistics");
+        System.out.print("  Comparisons: ");
         System.out.print(quickSort.COMPARISONS_COUNT);
-         System.out.println("\n  Swaps: ");
-        System.out.println(quickSort.SWAPS_COUNT);
+        System.out.print("\n  Swaps: ");
+        System.out.print(quickSort.SWAPS_COUNT);
     }
 
 }

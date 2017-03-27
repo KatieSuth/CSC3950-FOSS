@@ -52,7 +52,8 @@ public class BubbleSort {
         }
     }
 
-    public static void main(String[] args) {
+    //Katie - renamed this function since Menu.java is the new main
+    public void BubbleStart() {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 6, 5, 3};
 
        // __yellow("\nNew array: ");
@@ -68,17 +69,17 @@ public class BubbleSort {
       System.out.println("\nResult: ");
         __dump(array);
 
-        //____grey("\nStatistics");
-        System.out.println("\nStatistics");
-        //__green("  Comparisons: ");
-       System.out.println("Â  Comparisons: ");
-        System.out.print(bubbleSort.COMPARISONS_COUNT);
-        //__green("\n  Swaps: ");
-        System.out.println("\nÂ  Swaps: ");
-        System.out.print(bubbleSort.SWAPS_COUNT);
+       //____grey("\nStatistics");
+       System.out.println("\nStatistics");
+       //__green("  Comparisons: ");
+       System.out.print("  Comparisons: ");
+       System.out.print(bubbleSort.COMPARISONS_COUNT);
+       //__green("\n  Swaps: ");
+       System.out.print("\n  Swaps: ");
+       System.out.print(bubbleSort.SWAPS_COUNT);
        // __green("\n  Loops: ");
-         System.out.println("\nÂ  Loops: ");
-        System.out.println(bubbleSort.LOOP_COUNT);
+       System.out.print("\n  Loops: ");
+       System.out.print(bubbleSort.LOOP_COUNT);
     }
 
 }

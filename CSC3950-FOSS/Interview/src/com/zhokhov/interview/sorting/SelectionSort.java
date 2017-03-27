@@ -72,7 +72,8 @@ public class SelectionSort {
         return minIndex;
     }
 
-    public static void main(String[] args) {
+    //Katie - renamed this function since Menu.java is the new main
+    public void SelectionStart() {
         int array[] = {7, 1, 8, 2, 0, 12, 10, 6, 5, 3};
 
          System.out.println("\nNew array: ");
@@ -86,13 +87,13 @@ public class SelectionSort {
          System.out.println("\nResult: ");
         __dump(array);
 
-         System.out.println("\nStatistics");
-         System.out.println("  Comparisons: ");
+        System.out.println("\nStatistics");
+        System.out.print("  Comparisons: ");
         System.out.print(selectionSort.COMPARISONS_COUNT);
-         System.out.println("\n  Swaps: ");
+        System.out.print("\n  Swaps: ");
         System.out.print(selectionSort.SWAPS_COUNT);
-         System.out.println("\n  Loops: ");
-        System.out.println(selectionSort.LOOP_COUNT);
+        System.out.print("\n  Loops: ");
+        System.out.print(selectionSort.LOOP_COUNT);
     }
 
 }

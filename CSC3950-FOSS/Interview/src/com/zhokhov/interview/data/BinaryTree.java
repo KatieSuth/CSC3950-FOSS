@@ -120,7 +120,8 @@ public class BinaryTree {
       return 1 + size(u.leftChild) + size(u.rightChild);
    }
 
-   public static void main(String[] args){
+   //Katie - renamed this function since Menu.java is the new main
+   public void BinaryTreeStart(){
       BinaryTree theTree = new BinaryTree();
       int BTintInput = 0;         //Ring:for storing user input int
       String BTstringInput;   //Ring:for storing user input string
@@ -141,5 +142,8 @@ public class BinaryTree {
       theTree.inOrderTraverseTree(theTree.root);
       theTree.preorderTraverseTree(theTree.root);
       theTree.postOrderTraverseTree(theTree.root);
+      
+      //Katie - closed scan
+      scan.close();
    }
 }
