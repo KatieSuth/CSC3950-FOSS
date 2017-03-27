@@ -7,7 +7,7 @@
  *
  *  Original code: http://www.algolist.net/Data_structures/Hash_table/Simple_example
  */
-
+package com.zhokhov.interview.data;
 
 /**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
