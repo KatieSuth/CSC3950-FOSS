@@ -22,7 +22,7 @@ public class ArrayList {
    }
 
    public void add(Object item) {
-      System.out.println("index:" + this.index + " size:" + this.size + " data size:" + this.data.length);
+      System.out.println("index:" + this.index + " list size:" + (this.index + 1) + " array size:" + this.data.length);
       if (this.index == this.size - 1){
          increaseSizeAndReallocate();  //we need to increase the size of data[] 
       }
