@@ -9,6 +9,8 @@
  */
 package com.zhokhov.interview.data;
 
+import java.util.Scanner;
+
 /**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
  */
@@ -65,5 +67,9 @@ public class Stack {
         // This method is very similar to pop().
         // See Stack.pop() for comments.
         return list.get(list.size());
+    }
+
+    public void StackStart(Scanner scanS){
+    	
     }
 }

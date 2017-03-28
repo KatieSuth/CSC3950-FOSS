@@ -9,6 +9,8 @@
  */
 package com.zhokhov.interview.data;
 
+import java.util.Scanner;
+
 /**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
  */
@@ -149,4 +151,8 @@ public class LinkedList {
         }
     }
 
+    public void LinkedListStart(Scanner scanLL){
+    	
+    }
+    
 }

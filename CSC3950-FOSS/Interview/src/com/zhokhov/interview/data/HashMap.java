@@ -9,6 +9,8 @@
  */
 package com.zhokhov.interview.data;
 
+import java.util.Scanner;
+
 /**
  * @author <a href='mailto:alexey@zhokhov.com'>Alexey Zhokhov</a>
  */
@@ -46,7 +48,7 @@ public class HashMap {
 
     HashEntry[] table;
 
-    HashMap() {
+    public HashMap() {
         table = new HashEntry[TABLE_SIZE];
 
         for (int i = 0; i < TABLE_SIZE; i++) {
@@ -102,7 +104,9 @@ public class HashMap {
         table[hash] = new HashEntry(key, value);
     }
     
- 
+    public void HashMapStart(Scanner scanHM){
+    	
+    }
 
 }
 

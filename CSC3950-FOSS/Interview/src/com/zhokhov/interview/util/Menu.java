@@ -4,8 +4,13 @@
 package com.zhokhov.interview.util;
 
 import java.util.Scanner;
+
 import com.zhokhov.interview.data.ArrayList;
 import com.zhokhov.interview.data.BinaryTree;
+import com.zhokhov.interview.data.HashMap;
+import com.zhokhov.interview.data.LinkedList;
+import com.zhokhov.interview.data.Queue;
+import com.zhokhov.interview.data.Stack;
 import com.zhokhov.interview.sorting.BubbleSort;
 import com.zhokhov.interview.sorting.InsertionSort;
 import com.zhokhov.interview.sorting.MergeSort;
@@ -101,13 +106,37 @@ public class Menu {
 						  scanDS.nextLine();
 					  }
 					  break;
-			case "3": 
+			case "3": HashMap map = new HashMap();
+					  try {
+						  map.HashMapStart(scanDS);
+					  } catch (Exception e) {
+						  System.out.println("An error occurred in HashMap.");
+						  scanDS.nextLine();
+					  }
 				  	  break;
-			case "4": 
+			case "4": LinkedList llist = new LinkedList();
+					  try {
+						  llist.LinkedListStart(scanDS);
+					  } catch (Exception e) {
+						  System.out.println("An error occurred in LinkedList.");
+						  scanDS.nextLine();
+					  }
 				  	  break;
-			case "5": 
+			case "5": Queue qu = new Queue();
+					  try {
+						  qu.QueueStart(scanDS);
+					  } catch (Exception e) {
+						  System.out.println("An error occurred in Queue.");
+						  scanDS.nextLine();
+					  }
 				  	  break;
-			case "6": 
+			case "6": Stack st = new Stack();
+					  try {
+						  st.StackStart(scanDS);
+					  } catch (Exception e) {
+						  System.out.println("An error occurred in Stack.");
+						  scanDS.nextLine();
+					  }
 				  	  break;
 			default:  return -1; //"exit"
 		}
