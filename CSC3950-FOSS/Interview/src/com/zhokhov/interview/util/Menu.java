@@ -22,8 +22,7 @@ public class Menu {
 		System.out.println("Welcome to the Interview Review Helper!");
 				
 		while(intMenu != -1){ //-1 indicates the user has typed "exit"
-			intMenu = mainMenu.printMenu1(scan);
-			
+			intMenu = mainMenu.printMenu1(scan);		
 			switch (intMenu){
 				case 1:  intMenu = mainMenu.printDS(scan);
 						 break;
@@ -54,7 +53,7 @@ public class Menu {
 			
 			strInput = scanMenu.next();
 		}
-
+		
 		switch (strInput.trim().toLowerCase()) {
 			case "1": return 1;
 			case "2": return 2;
@@ -88,16 +87,18 @@ public class Menu {
 		switch (strInput.trim().toLowerCase()) {
 			case "1": ArrayList array = new ArrayList();
 					  try {
-					  	  array.ArrayListStart();
+					  	  array.ArrayListStart(scanDS);
 					  } catch (Exception e) {
 						  System.out.println("An error occurred in ArrayList.");
+						  scanDS.nextLine();
 					  }
 					  break;
 			case "2": BinaryTree btree = new BinaryTree();
 					  try {
-						  btree.BinaryTreeStart();
+						  btree.BinaryTreeStart(scanDS);
 					  } catch (Exception e) {
 						  System.out.println("An error occurred in BinaryTree.");
+						  scanDS.nextLine();
 					  }
 					  break;
 			case "3": 
@@ -141,6 +142,7 @@ public class Menu {
 						  bubble.BubbleStart();;
 					  } catch (Exception e) {
 						  System.out.println("An error occurred in BubbleSort.");
+						  scanSA.nextLine();
 					  }
 					  break;
 			case "2": InsertionSort insert = new InsertionSort();
@@ -148,6 +150,7 @@ public class Menu {
 						  insert.InsertionStart();
 					  } catch (Exception e) {
 						  System.out.println("An error occurred in InsertionSort.");
+						  scanSA.nextLine();
 					  }
 					  break;
 			case "3": MergeSort merge = new MergeSort();
@@ -155,6 +158,7 @@ public class Menu {
 				    	  merge.MergeStart();
 				      } catch (Exception e) {
 						  System.out.println("An error occurred in MergeSort.");
+						  scanSA.nextLine();
 				      }
 				  	  break;
 			case "4": QuickSort quick = new QuickSort();
@@ -162,6 +166,7 @@ public class Menu {
 						  quick.QuickStart();
 					  } catch (Exception e) {
 						  System.out.println("An error occurred in QuickSort.");
+						  scanSA.nextLine();
 					  }
 				  	  break;
 			case "5": SelectionSort select = new SelectionSort();
@@ -169,6 +174,7 @@ public class Menu {
 						  select.SelectionStart();
 					  } catch (Exception e) {
 						  System.out.println("An error occured in SelectionSort.");
+						  scanSA.nextLine();
 					  }
 					  break;
 			default:  return -1; //"exit"

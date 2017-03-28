@@ -125,6 +125,7 @@ public class BinaryTree {
       BinaryTree theTree = new BinaryTree();
       int BTintInput = 0;         //Ring:for storing user input int
       String BTstringInput;   //Ring:for storing user input string
+      System.out.println("Please note that any non-integer input will cause an error.");
       while(BTintInput!=-999){ 
          System.out.println("Enter the number for this node(-999 to exit)");
          BTintInput = scanBT.nextInt();
@@ -136,7 +137,7 @@ public class BinaryTree {
       }
       System.out.println("What's the number of the node that you want to find?");
       BTintInput=scanBT.nextInt();
-      System.out.println("Node with the key: "+BTintInput+"/n");
+      System.out.println("Node with the key: "+BTintInput+"\n");
       System.out.println(theTree.findNode(BTintInput));
       theTree.inOrderTraverseTree(theTree.root);
       theTree.preorderTraverseTree(theTree.root);

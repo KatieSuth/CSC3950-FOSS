@@ -42,23 +42,21 @@ public class ArrayList {
       //System.out.println("***index:" + this.index + " size:" + this.size + " data size:" + this.data.length);
    }
 
-   public Object get(int index) throws Exception{
-      if (index > this.index - 1){
-         throw new Exception("ArrayIndexOutOfBound");
-      }
-      if (index < 0){
-         throw new Exception("Negative Value");
-      }
-      return this.data[index];
+   public Object get(int index, Scanner scanGet){
+	  while (index < 0 || index >= this.index) {
+		  System.out.println("Please enter a valid index from 0 to " + (this.index - 1));
+		  index = scanGet.nextInt();
+	  }
+
+	  return this.data[index];
    }
 
-   public void remove(int removeIndex) throws Exception{
-      if (removeIndex > this.index - 1){
-         throw new Exception("ArrayIndexOutOfBound");
-      }
-      if (removeIndex < 0) {
-         throw new Exception("Negative Value");       
-      }
+   public void remove(int removeIndex, Scanner scanRemove){
+      while (removeIndex < 0 || removeIndex >= this.index) {
+    	 System.out.println("Please enter a valid index from 0 to " + (this.index - 1));
+		 removeIndex = scanRemove.nextInt();
+	  }
+
       System.out.println("Object getting removed:"+this.data[removeIndex]+" ");
       for (int i = removeIndex; i < this.data.length - 1; i++) {
          data[i] = data[i + 1];
@@ -70,7 +68,8 @@ public class ArrayList {
    public void ArrayListStart(Scanner scanAL) throws Exception{
       ArrayList mal = new ArrayList();       //Ring:I think zhokhov meant "master array list"
       int ALinput;                           //Ring: For allowing the user to enter int variables.Could flesh it out later for other data types.
-      System.out.println("Enter the integer values you'd like to populate the arraylist with individually.(-999 to stop)");
+      System.out.println("Enter the integer values you'd like to populate the ArrayList with individually.(-999 to stop)");
+      System.out.println("Please note that any non-integer input will cause an error.");
       ALinput = scanAL.nextInt();
       while(ALinput!=-999){
          mal.add(ALinput);
@@ -78,9 +77,12 @@ public class ArrayList {
       }
       System.out.println("Enter the index you'd like to remove.");
       ALinput = scanAL.nextInt();
-      mal.remove(ALinput);
+      mal.remove(ALinput, scanAL);
       System.out.println("Enter the index you'd like to retrieve.");
       ALinput = scanAL.nextInt();
-      System.out.println("The value stored at index "+ALinput+" is: "+mal.get(ALinput));
+      
+      if(mal.get(ALinput, scanAL) != null){
+    	  System.out.println("The value stored at index "+ALinput+" is: "+mal.get(ALinput, scanAL));
+      } 
    }
 }
