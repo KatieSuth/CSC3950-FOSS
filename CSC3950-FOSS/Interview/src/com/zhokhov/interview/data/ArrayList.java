@@ -76,7 +76,7 @@ public class ArrayList {
          mal.add(ALinput);
          ALinput = scanAL.nextInt();
       }
-      System.out.println("Enter the value you'd like to remove.");
+      System.out.println("Enter the index you'd like to remove.");
       ALinput = scanAL.nextInt();
       mal.remove(ALinput);
       System.out.println("Enter the index you'd like to retrieve.");
